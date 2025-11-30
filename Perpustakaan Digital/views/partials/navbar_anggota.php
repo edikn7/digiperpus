@@ -7,7 +7,7 @@
                 </div>
                 <div class="hidden md:flex flex-2 justify-center">
                     <div class="flex items-center space-x-1">
-                        <a href="#beranda" class="nav-link relative text-blue-primary hover:text-teal-primary px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 group">
+                        <a href="dashboard_anggota.php" class="nav-link relative text-blue-primary hover:text-teal-primary px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 group">
                             <span class="relative z-10">Beranda</span>
                             <div class="absolute inset-0 bg-gradient-to-r from-blue-primary/5 to-teal-primary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </a>

@@ -58,7 +58,14 @@
  <header class="flex justify-between items-center fixed inset-x-0 top-0 mb-6 bg-blue-50 p-6 pt-4 shadow-md ">
                 <div class="flex ml-64 flex-col">
                     <h1 class="text-2xl font-semibold text-blue-secondary">Dashboard</h1>
-                    <p class="text-sm text-gray-600">Selamat datang, Admin <?php echo htmlspecialchars($_SESSION['username'] ?? ''); ?></p>
+                    <p class="text-sm text-gray-600">Selamat datang, 
+                    <?php 
+                        if (isset($_SESSION['level']) && $_SESSION['level'] === 'Admin') {
+                            echo htmlspecialchars($_SESSION['username']);
+                        } else {
+                            echo "Admin";
+                    }
+                    ?></p>
                 </div>
 
                 <div class="flex items-center gap-5">
@@ -76,7 +83,16 @@
                     <div class="relative">
                         <button id="profileToggle" class="flex items-center gap-2 bg-white rounded-lg px-2 py-1 hover:shadow">
                             <img src="../assets/img/profil.png" alt="Avatar" class="h-8 w-8 rounded-full object-cover">
-                            <span class="hidden md:inline text-sm"><?php  ?></span>
+                            <span class="hidden md:inline text-sm">
+    <?php 
+    if (isset($_SESSION['level']) && $_SESSION['level'] === 'Admin') {
+        echo htmlspecialchars($_SESSION['username']);
+    } else {
+        echo "Admin";
+    }
+    ?>
+</span>
+
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>

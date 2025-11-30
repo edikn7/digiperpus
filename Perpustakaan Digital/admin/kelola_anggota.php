@@ -2,22 +2,8 @@
 session_start();
 include '../config.php';
 
-
-// Ambil data semua anggota
-$query = mysqli_query($config, 
-"SELECT 
-    user.id AS user_id,
-    user.nama AS nama_user,
-    user.username,
-    anggota.email,
-    anggota.no_hp,
-    anggota.alamat,
-    anggota.tgl_bergabung
-FROM user
-LEFT JOIN anggota ON anggota.user_id = user.id
-WHERE user.level = 'Anggota'
-ORDER BY user.id DESC
-");
+// Ambil semua user dengan level Anggota
+$query = mysqli_query($config, "SELECT * FROM user WHERE level='Anggota' ORDER BY id DESC");
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +12,7 @@ ORDER BY user.id DESC
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manajemen Anggota | Digiperpus</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -47,8 +34,8 @@ ORDER BY user.id DESC
             }
         }
     </script>
-
 </head>
+
 <body class="bg-gray-100">
 
 <!-- Sidebar -->
@@ -64,12 +51,12 @@ ORDER BY user.id DESC
     <div class="flex items-center gap-4 mb-6">
 
         <a href="../admin/tambah_anggota.php" 
-           class="bg-blue-secondary text-white px-5 py-2 rounded-lg shadow hover:scale-105 transform transition">
+           class="bg-blue-secondary text-white px-5 py-2 rounded-lg shadow hover:scale-105 transition">
             + Tambah Anggota
         </a>
 
         <a href="../admin/cetak_laporan_anggota.php" target="_blank"
-           class="bg-teal-primary text-white px-5 py-2 rounded-lg shadow hover:scale-105 transform transition">
+           class="bg-teal-primary text-white px-5 py-2 rounded-lg shadow hover:scale-105 transition">
             Cetak Laporan Anggota
         </a>
 
@@ -94,38 +81,38 @@ ORDER BY user.id DESC
                 </thead>
 
                 <tbody class="text-sm">
-                    
                     <?php 
                     $no = 1;
-                    while ($d = mysqli_fetch_assoc($query)) { 
 
-                        // Cek apakah data anggota lengkap
+                    while ($d = mysqli_fetch_assoc($query)) {
+
+                        // Cek kelengkapan data
                         $lengkap = (
                             !empty($d['email']) &&
-                            !empty($d['no_hp']) &&
+                            !empty($d['no_telepon']) &&
                             !empty($d['alamat'])
                         );
                     ?>
 
                     <tr class="hover:bg-gray-50 transition">
                         <td class="px-4 py-3 border text-center"><?= $no++; ?></td>
-                        <td class="px-4 py-3 border"><?= $d['nama_user']; ?></td>
+                        <td class="px-4 py-3 border"><?= $d['nama']; ?></td>
                         <td class="px-4 py-3 border"><?= $d['username']; ?></td>
 
                         <td class="px-4 py-3 border">
-                            <?= !empty($d['email']) ? $d['email'] : '<span class="text-gray-400 italic">Belum diisi</span>'; ?>
+                            <?= $d['email'] ?: '<span class="text-gray-400 italic">Belum diisi</span>'; ?>
                         </td>
 
                         <td class="px-4 py-3 border">
-                            <?= !empty($d['no_hp']) ? $d['no_hp'] : '<span class="text-gray-400 italic">Belum diisi</span>'; ?>
+                            <?= $d['no_telepon'] ?: '<span class="text-gray-400 italic">Belum diisi</span>'; ?>
                         </td>
 
                         <td class="px-4 py-3 border">
-                            <?= !empty($d['alamat']) ? $d['alamat'] : '<span class="text-gray-400 italic">Belum diisi</span>'; ?>
+                            <?= $d['alamat'] ?: '<span class="text-gray-400 italic">Belum diisi</span>'; ?>
                         </td>
 
                         <td class="px-4 py-3 border">
-                            <?= !empty($d['tgl_bergabung']) ? $d['tgl_bergabung'] : '<span class="text-gray-400 italic">-</span>'; ?>
+                            <?= $d['tgl_bergabung'] ?: '<span class="text-gray-400 italic">-</span>'; ?>
                         </td>
 
                         <td class="px-4 py-3 border text-center">
@@ -138,7 +125,6 @@ ORDER BY user.id DESC
                     </tr>
 
                     <?php } ?>
-
                 </tbody>
 
             </table>
