@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-3">
-                    <a href="login.php" class="text-gray-800 font-semibold nav-link relative px-4 py-2 text-sm transition-all duration-300 group">
+                    <a href="../login.php" class="text-gray-800 font-semibold nav-link relative px-4 py-2 text-sm transition-all duration-300 group">
                             <span class="relative z-10">Login→</span>
                     </a>
                 </div>
@@ -97,7 +97,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 slide-up" style="animation-delay: 1s;">
                     <button class="cta-button border-2 border-white text-white  font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105">
-                        <a href="login.php">Mulai Sekarang</a>
+                        <a href="../login.php">Mulai Sekarang</a>
                     </button>
                 </div>
             </div>

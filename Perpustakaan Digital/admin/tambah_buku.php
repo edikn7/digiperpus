@@ -38,7 +38,7 @@
         <!-- Form tambah buku -->
     <h1 class="mb-6 text-3xl font-bold text-blue-secondary text-center tracking-tight">Tambah Buku Baru</h1>
      <div class="flex justify-center items-center min-h-screen bg-blue-50 p-8">
-        <form action="../aksi/aksi_tambah_buku.php" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-2xl shadow-2xl p-8 flex flex-col w-full max-w-3xl">
+        <form action="../aksi/aksi_tambah_buku.php" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-2xl shadow-2xl m-0.5p-8 flex flex-col w-full max-w-3xl">
             <div class="flex flex-row gap-8">
                <!-- Cover Buku -->
                 <div class="flex flex-col items-center justify-center">

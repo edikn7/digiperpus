@@ -95,50 +95,16 @@
             </div>
 
             <!--- Bagian Statistik Peminjaman Buku -->
-            <div class="bg-white p-6 rounded-lg shadow-2xl">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-semibold mb-4 text-blue-primary">Statistik Peminjaman Buku</h2>
                 <canvas id="peminjamanChart" class="w-full h-64"></canvas>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script>
-                    const ctx = document.getElementById('peminjamanChart').getContext('2d');
-                    const peminjamanChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                            datasets: [{
-                                label: 'Jumlah Peminjaman',
-                                data: [
-                                    <?php
-                                    include '../config.php';
-                                    for ($month = 1; $month <= 12; $month++) {
-                                        $result = mysqli_query($config, "SELECT COUNT(*) AS total FROM peminjaman WHERE MONTH(tanggal_pinjam) = $month");
-                                        $data = mysqli_fetch_assoc($result);
-                                        echo $data['total'] . ', ';
-                                    }
-                                    ?>
-                                ],
-                                backgroundColor: 'rgba(59, 130, 246, 0.7)',
-                                borderColor: 'rgba(59, 130, 246, 1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                    ticks: {
-                                        stepSize: 1
-                                    }
-                                }
-                            }
-                        }
-                    });
-                </script>
             </div>
 
-           
+        </main>
+        <!--- Bagian Footer -->
+        <footer class="ml-64 mt-6 mb-6 p-4 text-center text-sm text-gray-500">
+            &copy; 2024 DigiPerpus. All rights reserved.
+        </footer>
     
-        </main> 
-       
 </body>
 </html>

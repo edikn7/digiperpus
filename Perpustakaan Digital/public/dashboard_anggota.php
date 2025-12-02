@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Jika belum login
+if (!isset($_SESSION['username'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Jika level BUKAN Anggota → tendang
+if ($_SESSION['level'] !== 'Anggota') {
+    header("Location: ../login.php?akses=ditolak");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,18 +47,6 @@
     </script>
 </head>
 <body class="bg-blue-50 min-h-screen">
-    <?php 
-	session_start();
- 
-	// cek apakah yang mengakses halaman ini sudah login
-	if($_SESSION['level']==""){
-		header("location:index.php?pesan=gagal");
-	}
-
-    
- 
-	?>
-
     <!-- Navbar -->
     <?php include_once __DIR__ .'/../views/partials/navbar_anggota.php'; ?>
 
@@ -86,7 +89,7 @@
                     <p class="text-gray-600 mb-4">Kategori: <?= $buku['kategori']; ?></p>
                     <div class="flex flex-col gap-2">
                         <button class="w-full bg-teal-primary text-white px-3 py-2 text-sm rounded-lg hover:bg-teal-secondary transition">
-                        <a href="pinjam_buku.php?id=<?= $buku['id_buku']; ?>">Pinjam Buku</a>
+                        <a href="peminjaman_buku.php?id=<?= $buku['id_buku']; ?>">Pinjam Buku</a>
                         </button>
                         <button class="w-full bg-blue-secondary text-white px-3 py-2 text-sm rounded-lg hover:bg-blue-primary transition">
                         <a href="baca_buku.php?id=<?= $buku['id_buku']; ?>">Baca E-Book</a>

@@ -41,9 +41,12 @@
         }
     </script>
 </head>
-<body>
+<body class="bg-blue-50 min-h-screen">
     <!-- Navbar -->
     <?php include_once __DIR__ .'/../views/partials/navbar_anggota.php'; ?>
+    <main class="p-8 pt-32 bg-blue-50 min-h-screen">
+        
+    </main>
 
 </body>
 </html>

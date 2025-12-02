@@ -14,7 +14,7 @@
 </head>
 <body>
     <h2 style="text-align: center;">Laporan Data Buku DigiPerpus</h2>
-    <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; margin-top: 20px;">
+    <table border="1   " cellspacing="0" cellpadding="5" style="width: 100%; margin-top: 20px;">
         <thead>
             <tr>
                 <th>ID</th>

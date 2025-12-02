@@ -138,7 +138,7 @@
 
         <!-- Back to Home -->
         <div class="text-center mt-4">
-            <a href="public/index.php" class="inline-flex items-center text-gray-500 hover:text-teal-primary transition-colors">
+            <a href="index.php" class="inline-flex items-center text-gray-500 hover:text-teal-primary transition-colors">
                 <span class="mr-2">←</span>
                 Kembali ke beranda
             </a>

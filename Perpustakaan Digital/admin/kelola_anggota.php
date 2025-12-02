@@ -134,5 +134,10 @@ $query = mysqli_query($config, "SELECT * FROM user WHERE level='Anggota' ORDER B
 
 </main>
 
+
 </body>
+<!--- Bagian Footer -->
+        <footer class="ml-64 mt-6 mb-6 p-4 text-center text-sm text-gray-500">
+            &copy; 2024 DigiPerpus. All rights reserved.
+        </footer>
 </html>
